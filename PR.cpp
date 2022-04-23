@@ -21,7 +21,7 @@
 using namespace std;
 const double eps=1e-8; 
 typedef long long ll;
-const int MAXV=105;
+const int MAXV=1205;
 const ll mod=1e9+7;
 
 template<class T>

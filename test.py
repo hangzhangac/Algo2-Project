@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 # coding=utf-8
 import os
-import datetime
+#import datetime
+import time
 import sys
 
-def test(algo):
-    oldtime=datetime.datetime.now()
-    for i in range(1,9):
-        file_name = "data/"+str(i)+'.in'
-        file_ans = "data/"+str(i)+'.out'
+def test(algo, testsetid):
+    x = 9
+    if testsetid == "2":
+        x = 12
+    oldtime=time.time()
+    for i in range(1,x):
+        file_name = "data"+testsetid+"/"+str(i)+'.in'
+        file_ans = "data"+testsetid+"/"+str(i)+'.out'
         
         command_exec = "./"+ algo +" < " + file_name + " > output.out"
         os.system(command_exec)
@@ -21,10 +25,10 @@ def test(algo):
         myfr.close();
         print("Test"+str(i)+" passed.")
         os.system("rm output.out")
-    newtime = datetime.datetime.now()
-    print("Elapsed time:",(newtime-oldtime).microseconds/1000,"ms.")
+    newtime = time.time()
+    print("Elapsed time:",format(newtime-oldtime, '.3f'),"seconds.")
 
 if __name__ == "__main__":
-    test(sys.argv[1])
+    test(sys.argv[1], sys.argv[2])
 
 
