@@ -79,10 +79,10 @@ public:
 		while(!q.empty()){
 			int u = q.front();q.pop();
 			for(int i=0; i<Graph[u].size(); i++){
-				int to = Graph[u][i].to;
-				if(level[to]==-1 && Graph[u][i].cap > Graph[u][i].flow){
-					level[to] = level[u] + 1;
-					q.push(to);
+				auto e = Graph[u][i];
+				if(level[e.to]==-1 && e.cap > e.flow){
+					level[e.to] = level[u] + 1;
+					q.push(e.to);
 				}
 			}
 			if(level[sink]!=-1)break;

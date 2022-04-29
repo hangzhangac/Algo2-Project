@@ -87,11 +87,11 @@ public:
 		while(!q.empty()){
 			int u = q.front();q.pop();
 			for(int i=0; i<Graph[u].size(); i++){
-				int to = Graph[u][i].to;
-				if(flow[to]==0 && Graph[u][i].cap > Graph[u][i].flow){
-					pre[to] = {u,i};
-					flow[to] = min(flow[u], Graph[u][i].cap - Graph[u][i].flow);
-					q.push(to);
+				auto e = Graph[u][i];
+				if(flow[e.to]==0 && e.cap > e.flow){
+					pre[e.to] = {u,i};
+					flow[e.to] = min(flow[u], e.cap - e.flow);
+					q.push(e.to);
 				}
 			}
 			if(flow[sink])break;

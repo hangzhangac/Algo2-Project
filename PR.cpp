@@ -85,8 +85,9 @@ public:
 	bool relabel(int u){
 		int h = inf;
 		for(int i=0; i<Graph[u].size(); i++){
-			if(Graph[u][i].cap > Graph[u][i].flow){
-				h = min(h, height[Graph[u][i].to]);
+			auto e = Graph[u][i];
+			if(e.cap > e.flow){
+				h = min(h, height[e.to]);
 			}
 		}
 		
@@ -94,20 +95,20 @@ public:
 		height[u] = h + 1;
 		for(int i=0; i<Graph[u].size(); i++){
 			if(excess[u] == 0)break;
-			int to = Graph[u][i].to;
-			if(height[to] + 1 == height[u] && Graph[u][i].cap > Graph[u][i].flow){
+			auto e = Graph[u][i];
+			if(height[e.to] + 1 == height[u] && e.cap > e.flow){
 				push_(u, i);
 			}
 		}
 		return true;
 	}
 	void push_(int u, int index){
-		T d = min(excess[u], Graph[u][index].cap - Graph[u][index].flow);
-		Graph[u][index].flow += d;
-		int to = Graph[u][index].to;
-		Graph[to][Graph[u][index].rev_id].flow -= d;
+		auto &e = Graph[u][index];
+		T d = min(excess[u], e.cap - e.flow);
+		e.flow += d;
+		Graph[e.to][e.rev_id].flow -= d;
 		excess[u] -= d;
-		excess[to] += d;
+		excess[e.to] += d;
 	}
 	T maximum_flow(){
 		preflow();
