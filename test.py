@@ -9,7 +9,7 @@ def test(algo, testsetid):
     fullname = {'dn':'Dinic','ek':'Edmonds-Karp','pr':'Push-Relabel'}
     x = 9
     if testsetid == "2":
-        x = 12
+        x = 13
     oldtime=time.time()
     for i in range(1,x):
         file_name = "data"+testsetid+"/"+str(i)+'.in'
