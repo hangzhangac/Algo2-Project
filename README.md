@@ -3,6 +3,7 @@
 
 ### Edmonds-Karp algorithm is implemented in EK.cpp
 ### Push-Relabel algorithm is implemented in PR.cpp
+### Dinic algorithm is implemented in DN.cpp
 #### To test:
 ```bash
 chmod +x compile.sh
@@ -14,3 +15,5 @@ python3 test.py pr 2 # Test Push-Relabel algorithm for data2.
 python3 test.py dn 2 # Test Dinic algorithm for data2.
 python3 test.py ek 2 # Test Edmonds-Karp algorithm for data2.
 ```
+
+
