@@ -1,28 +1,9 @@
-#pragma GCC optimize("Ofast,unroll-loops")
-#pragma GCC target("avx,avx2,sse,sse2")
 #include <algorithm>
 #include <iostream>
-#include <cstdlib>
-#include <cstring>
-#include <cstdio>
-#include <string>
-#include <stack>
 #include <queue>
-#include <cmath>
-#include <list>
-#include <map>
-#include <set>
-#define mem(a,x) memset(a,x,sizeof(a))
-#define gi(x) scanf("%d",&x)
-#define gi2(x,y) scanf("%d%d",&x,&y)
-#define gi3(x,y,z) scanf("%d%d%d",&x,&y,&z)
-#define gll(x) scanf("%lld",&x)
-#define gll2(x,y) scanf("%lld%lld",&x,&y)
+#include <unordered_map>
 using namespace std;
-const double eps=1e-8; 
 typedef long long ll;
-const int MAXV=1205;
-const ll mod=1e9+7;
 
 template<class T>
 struct edge{
@@ -50,7 +31,7 @@ private:
 	int source, sink;
 	vector<int>level;
 	vector<int>iter;
-	vector<edge<T>>Graph[MAXV+1];
+	unordered_map<int, vector<edge<T>> >Graph;
 	const long long inf;
 public:
 	DN(int V):inf(0x3f3f3f3f3f3f3f3f){
@@ -123,14 +104,14 @@ public:
 int main(int argc, char *argv[]) {
 	
 	int n,m,s,t;
-	scanf("%d%d%d%d",&n,&m,&s,&t);
+	cin>>n>>m>>s>>t;
 	DN<ll>mf(n);
 	s--;t--;
 	mf.setSource(s);
 	mf.setSink(t);
 	while(m--){
 		int u,v,c;
-		scanf("%d%d%d",&u,&v,&c);
+		cin>>u>>v>>c;
 		u--;v--;
 		mf.addEdge(u, v, c);
 	}
