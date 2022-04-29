@@ -6,6 +6,7 @@ import time
 import sys
 
 def test(algo, testsetid):
+    fullname = {'dn':'Dinic','ek':'Edmonds-Karp','pr':'Push-Relabel'}
     x = 9
     if testsetid == "2":
         x = 12
@@ -26,7 +27,7 @@ def test(algo, testsetid):
         print("Test"+str(i)+" passed.")
         os.system("rm output.out")
     newtime = time.time()
-    print("Elapsed time:",format(newtime-oldtime, '.3f'),"seconds.")
+    print("Elapsed time of",fullname[algo]+":",format(newtime-oldtime, '.3f'),"seconds.")
 
 if __name__ == "__main__":
     test(sys.argv[1], sys.argv[2])
