@@ -2,26 +2,9 @@
 #include <iostream>
 #include <queue>
 #include <unordered_map>
+#include "edge.hpp"
 using namespace std;
 typedef long long ll;
-
-template<class T>
-struct edge{
-	int to;
-	T cap;
-	T flow;
-	int rev_id;
-	edge(){}
-	edge(int to, T cap, T flow, int rev_id){
-		this->to = to;
-		this->cap = cap;
-		this->flow = flow;
-		this->rev_id = rev_id;
-	}
-	bool full(){
-		return cap == flow;
-	}
-};
 
 template<class T>
 class PR{
