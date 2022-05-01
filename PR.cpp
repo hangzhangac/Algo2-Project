@@ -12,8 +12,8 @@ class PR{
 private:
 	int V;
 	int source, sink;
-	vector<int>height;
-	vector<T>excess;
+	unordered_map<int, int>height;
+	unordered_map<int,T>excess;
 	unordered_map<int, vector<edge<T>> >Graph;
 	const int inf;
 public:
@@ -32,10 +32,8 @@ public:
 		Graph[to].push_back( edge<T>(from, 0, 0, Graph[from].size()-1) );
 	}
 	void preflow(){
-		for(int i=0; i < V; i++){
-			height.push_back(0);
-			excess.push_back(0);
-		}
+		height.clear();
+		excess.clear();
 		height[source] = V;
 		for(int i=0; i<Graph[source].size(); i++){
 			auto &e = Graph[source][i];

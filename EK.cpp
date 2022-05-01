@@ -12,8 +12,8 @@ class EK{
 private:
 	int V;
 	int source, sink;
-	vector<pair<int,int>>pre;
-	vector<T>flow;
+	unordered_map<int, pair<int,int>>pre;
+	unordered_map<int, T>flow;
 	unordered_map<int, vector<edge<T>> >Graph;
 	const long long inf;
 public:
@@ -28,22 +28,16 @@ public:
 	}
 	void addEdge(int from, int to, T cap){
 		Graph[from].push_back( edge<T>(to, cap, 0, Graph[to].size()) );
-		// Add the reverse edge.
+		
+		// Add the reversed edge.
 		Graph[to].push_back( edge<T>(from, 0, 0, Graph[from].size()-1) );
 	}
 	void init(){
-		pre.clear();flow.clear();
-		for(int i=0; i < V; i++){
-			pre.push_back({-1,-1});
-		}
-		for(int i=0; i < V; i++){
-			flow.push_back(0);
-		}
+		pre.clear();
+		flow.clear();
 	}
 	bool bfs(){
-		for(int i=0; i < V; i++){
-			flow[i] = 0;
-		}
+		flow.clear();
 		queue<int>q;
 		q.push(source);
 		flow[source] = inf;
