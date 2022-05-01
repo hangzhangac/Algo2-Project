@@ -27,6 +27,6 @@ It will output one number: the maximum flow from the source to the sink.
 #### Performance (Running Time)
 |     | data1  | data2  |
 |  ----  | ----  | ----  |
-| Edmonds-Karp  | 1.475s | 2147.292s |
-|  Dinic | 0.248s | 23.301s |
-| Push-Relabel  | 0.353s | 2.004s |
+| Edmonds-Karp  | 1.975s | 3481.731s |
+|  Dinic | 0.270s | 29.678s |
+| Push-Relabel  | 0.427s | 3.663s |
