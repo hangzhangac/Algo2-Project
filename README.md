@@ -17,8 +17,8 @@ python3 test.py ek 2 # Test Edmonds-Karp algorithm on data2.
 ```
 
 #### Input Format:
-First line contains 4 numbers, n, m, s, t, seperated by space, representing the number of vertices, number of edges, the source, the sink respectively.  
-Then, there are m lines following, for the i-th line, there are there numbers seperated by space, u<sub>i</sub>, v<sub>i</sub>, c<sub>i</sub>, represents there is an edge from vertex u<sub>i</sub> to vertex v<sub>i</sub> of capacity c<sub>i</sub>.  
+First line contains 4 numbers, n, m, s, t, separated by space, representing the number of vertices, number of edges, the source, the sink respectively.  
+Then, there are m lines following, for the i-th line, there are three numbers separated by space, u<sub>i</sub>, v<sub>i</sub>, c<sub>i</sub>, represents there is an edge from vertex u<sub>i</sub> to vertex v<sub>i</sub> of capacity c<sub>i</sub>.  
 The vertex is indexed from 1. 
 #### Output Format:
 ```bash
