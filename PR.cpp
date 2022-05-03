@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <queue>
 #include <unordered_map>
@@ -10,11 +9,11 @@ template<class T>
 class PR{
 
 private:
-	int V;
+	int V; // the number of vertices
 	int source, sink;
-	unordered_map<int, int>height;
-	unordered_map<int,T>excess;
-	unordered_map<int, vector<edge<T>> >Graph;
+	unordered_map<int, int>height; // key is the id of vertex, value is the vertex's height
+	unordered_map<int,T>excess; // key is the id of vertex, value is the excess flow of that vertex
+	unordered_map<int, vector<edge<T>> >Graph; // adjaceny list of Graph
 	const int inf;
 public:
 	PR(int V):inf(0x3f3f3f3f){
@@ -31,6 +30,8 @@ public:
 		// Add the reverse edge.
 		Graph[to].push_back( edge<T>(from, 0, 0, Graph[from].size()-1) );
 	}
+
+	// Create an initial preflow in the flow network
 	void preflow(){
 		height.clear();
 		excess.clear();
@@ -42,7 +43,7 @@ public:
 			excess[source] -= e.cap;
 			Graph[e.to][e.rev_id].flow = -e.flow;
 		}
-
+		return;
 	}
 	bool relabel(int u){
 		int h = inf;

@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <queue>
 #include <unordered_map>
@@ -77,7 +76,7 @@ public:
 		while(bfs()){
 			iter.clear();
 			T increment = 0;
-			while((increment = dfs(source, inf)) > 0) //augment on mutiple paths
+			while((increment = dfs(source, inf)) > 0) // augment on mutiple paths
 				mf += increment;
 		}
 		return mf;
