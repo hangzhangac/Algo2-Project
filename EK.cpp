@@ -47,7 +47,7 @@ public:
 				if(flow[e.to]==0 && e.cap > e.flow){
 					pre[e.to] = {u,i}; // record the edge getting to e.to
 					flow[e.to] = min(flow[u], e.cap - e.flow); // inject min(flow[u], e.cap - e.flow) water to e.to
-					q.push(e.to);
+					q.push(e.to); // push it to the queue
 				}
 			}
 			if(flow[sink])break; // If the sink has been injected with flow, break

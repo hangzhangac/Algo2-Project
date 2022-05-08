@@ -47,6 +47,7 @@ public:
 	}
 	bool relabel(int u){
 		int h = inf;
+		// First, check if it needs relabel
 		for(int i=0; i<Graph[u].size(); i++){
 			auto e = Graph[u][i];
 			if(e.cap > e.flow){

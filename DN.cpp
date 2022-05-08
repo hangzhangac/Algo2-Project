@@ -74,7 +74,7 @@ public:
 		init();
 		T mf = 0;
 		while(bfs()){
-			iter.clear();
+			iter.clear(); //clear the iter
 			T increment = 0;
 			while((increment = dfs(source, inf)) > 0) // augment on mutiple paths
 				mf += increment;
