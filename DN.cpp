@@ -57,6 +57,7 @@ public:
 	}
 	T dfs(int u, T f){
 		if(u == sink) return f;
+		T flow = 0;
 		for(int &i = iter[u]; i < Graph[u].size(); i++){
 			auto &e = Graph[u][i];
 			if(e.cap > e.flow && level[u] + 1 == level[e.to]){
@@ -64,11 +65,14 @@ public:
 				if(d > 0){
 					e.flow += d; // update the flow of the current edge
 					Graph[e.to][e.rev_id].flow -= d; // update the flow of the reversed edge
-					return d;
+					// return d;
+					flow += d;
+					f -= d;
+					if(f == 0)break;
 				}
 			}
 		}
-		return 0;
+		return flow;
 	}
 	T maximum_flow(){
 		init();
@@ -76,8 +80,8 @@ public:
 		while(bfs()){
 			iter.clear(); //clear the iter
 			T increment = 0;
-			while((increment = dfs(source, inf)) > 0) // augment on mutiple paths
-				mf += increment;
+			increment = dfs(source, inf); // augment on mutiple paths
+			mf += increment;
 		}
 		return mf;
 	}
