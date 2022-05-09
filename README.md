@@ -28,7 +28,7 @@ It will output one number: the maximum flow from the source to the sink.
 |     | data1  | data2  |
 |  ----  | ----  | ----  |
 | Edmonds-Karp  | 1.975s | 3481.731s |
-|  Dinic | 0.270s | 29.678s |
+|  Dinic | 0.270s | 15.787s |
 | Push-Relabel  | 0.427s | 3.663s |
 #### Data
 data1 is a small scale dataset where n<=100 and m<=5000.  
