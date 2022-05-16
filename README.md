@@ -30,13 +30,16 @@ The vertex is indexed from 1.
 ```bash
 It will output one number: the maximum flow from the source to the sink.
 ```
+#### Data
+data1 is a small scale dataset where n<=100 and m<=5000.  
+data2 is a large scale dataset where n<=1200 and m<=36075.  
+All the data is from LibreOJ, an online judge platform for International Olympiad in Informatics.
 #### Performance (Running Time)
 |     | data1  | data2  |
 |  ----  | ----  | ----  |
 | Edmonds-Karp  | 1.975s | 3481.731s |
 |  Dinic | 0.270s | 15.787s |
 | Push-Relabel  | 0.427s | 3.663s |
-#### Data
-data1 is a small scale dataset where n<=100 and m<=5000.  
-data2 is a large scale dataset where n<=1200 and m<=36075.  
-All the data is from LibreOJ, an online judge platform for International Olympiad in Informatics.
+
+We can see that on data1 (small scale dataset), dinic is faster than push-relabel algorithm, that is possibly because the implementation of dinic has a lower constant.  
+When running the code on data2 (large scale dataset), instead of the constant, the time complexity itself plays the decisive role.
