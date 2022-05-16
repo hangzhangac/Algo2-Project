@@ -4,6 +4,12 @@
 ### Edmonds-Karp algorithm is implemented in EK.cpp
 ### Push-Relabel algorithm is implemented in PR.cpp
 ### Dinic algorithm is implemented in DN.cpp
+#### Time Complexity
+|  Algorithm   | Time Complexity  |
+|  ----  | ----  |
+| Edmonds-Karp  | O(nm<sup>2</sup>) |
+|  Dinic | O(n<sup>2</sup>m) |
+| Push-Relabel  | O(n<sup>3</sup>) |
 #### To test:
 ```bash
 chmod +x compile.sh
