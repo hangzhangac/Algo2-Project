@@ -20,12 +20,12 @@ public:
 		this->V = V;
 	}
 	void setSource(int source){
-		this->source = source;
+		this->source = source; // set source
 	}
-	void setSink(int sink){
+	void setSink(int sink){ // set sink
 		this->sink = sink;
 	}
-	void addEdge(int from, int to, T cap){
+	void addEdge(int from, int to, T cap){ // add an edge
 		Graph[from].push_back( edge<T>(to, cap, 0, Graph[to].size()) );
 		
 		// Add the reversed edge.
@@ -37,7 +37,7 @@ public:
 	}
 	bool bfs(){
 		init();
-		queue<int>q;
+		queue<int>q; // the queue for bfs
 		q.push(source);
 		flow[source] = inf; // Injecting infinite water to the source
 		while(!q.empty()){
@@ -50,7 +50,7 @@ public:
 					q.push(e.to); // push it to the queue
 				}
 			}
-			if(flow[sink])break; // If the sink has been injected with flow, break
+			if(flow[sink]!=0)break; // if the sink has been injected with flow, break
 		}
 		if(flow[sink] == 0)return false; // no augment path from the source to the sink
 		return true;
@@ -62,7 +62,7 @@ public:
 			T increment = flow[sink]; // increment flow
 			mf += increment;
 			int u = sink;
-			while(u!=source){
+			while(u!=source){ // update the flow on this augment path.
 				int from = pre[u].first;
 				int index = pre[u].second;
 				Graph[from][index].flow += increment; // update the residual graph
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 	int n,m,s,t;
 	cin>>n>>m>>s>>t;
 	EK<ll>mf(n);
-	s--;t--;
+	s--;t--; // the vertex is indexed from 1 in the data, so -1 to let them indexed from 0;
 	mf.setSource(s);
 	mf.setSink(t);
 	while(m--){
