@@ -43,3 +43,8 @@ All the data is from LibreOJ, an online judge platform for International Olympia
 
 We can see that on data1 (small scale dataset), dinic is faster than push-relabel algorithm, that is possibly because the implementation of dinic has a lower constant.  
 When running the code on data2 (large scale dataset), instead of the constant, the time complexity itself plays the decisive role.
+#### Reference
+[1] CORMEN, T. H., & CORMEN, T. H. (2001). Introduction to algorithms. Cambridge, Mass, MIT Press.  
+[2] [Dinic algorithm code](https://www.geeksforgeeks.org/dinics-algorithm-maximum-flow/ "dinics-algorithm-maximum-flow")  
+[3] [Edmonds-Karp algorithm code](https://www.tutorialspoint.com/cplusplus-program-to-implement-the-edmonds-karp-algorithm "Edmonds-Karp Algorithm")  
+[4] [Push-Relabel algorithm code](https://www.geeksforgeeks.org/push-relabel-algorithm-set-2-implementation/ "Push-Relabel algorithm")
