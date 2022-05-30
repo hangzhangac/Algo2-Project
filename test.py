@@ -6,11 +6,11 @@ import sys
 
 def test(algo, testsetid):
     fullname = {'dn':'Dinic','ek':'Edmonds-Karp','pr':'Push-Relabel'}
-    x = 9
+    x = 8
     if testsetid == "2":
-        x = 13
+        x = 25
     oldtime=time.time()
-    for i in range(1,x):
+    for i in range(1,x+1):
         file_name = "data"+testsetid+"/"+str(i)+'.in'
         file_ans = "data"+testsetid+"/"+str(i)+'.out'
         
