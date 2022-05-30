@@ -37,9 +37,9 @@ All the data is from LibreOJ, an online judge platform for International Olympia
 #### Performance (Running Time)
 |     | data1  | data2  |
 |  ----  | ----  | ----  |
-| Edmonds-Karp  | 1.975s | 3481.731s |
-|  Dinic | 0.270s | 15.787s |
-| Push-Relabel  | 0.427s | 3.663s |
+| Edmonds-Karp  | 1.975s | 92.807hours |
+|  Dinic | 0.270s | 673.948s |
+| Push-Relabel  | 0.427s | 123.060s |
 
 We can see that on data1 (small scale dataset), dinic is faster than push-relabel algorithm, that is possibly because the implementation of dinic has a lower constant.  
 When running the code on data2 (large scale dataset), instead of the constant, the time complexity itself plays the decisive role.
